@@ -1,0 +1,33 @@
+package com.example.pojo;
+
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+
+@Data
+public class User {
+    @NotNull
+    private Integer id;
+    private String username;
+    @JsonIgnore
+    private String password;
+
+    @NotEmpty
+    @Pattern(regexp = "^\\S{1,10}$")
+    private String nickname;
+
+    @NotEmpty
+    @Email
+    private String email;
+    private String userPic;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
+    private Integer version;
+}

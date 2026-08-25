@@ -1,0 +1,8 @@
+ALTER TABLE `user`
+    ADD COLUMN `version` INT NOT NULL DEFAULT 1;
+
+ALTER TABLE `article`
+    ADD COLUMN `version` INT NOT NULL DEFAULT 1;
+
+ALTER TABLE `category`
+    ADD COLUMN `version` INT NOT NULL DEFAULT 1;

@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: optional:file:./.env[.properties]
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/big_event?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: ""
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true # 开启下划线转驼峰
+
+ai:
+  base-url: ${AI_BASE_URL:https://api.openai.com/v1}
+  api-key: ${AI_API_KEY:}
+  model: ${AI_MODEL:gpt-4o-mini}
+
+oss:
+  endpoint: ${OSS_ENDPOINT:https://oss-cn-shanghai.aliyuncs.com}
+  bucket-name: ${OSS_BUCKET_NAME:}
+  access-key-id: ${OSS_ACCESS_KEY_ID:}
+  access-key-secret: ${OSS_ACCESS_KEY_SECRET:}
